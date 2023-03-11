@@ -135,8 +135,8 @@ IntDynamicArray &IntDynamicArray::operator+(IntDynamicArray &tmp) {
 }
 
 std::ostream &operator<<(ostream &os, IntDynamicArray &arr) {
-    os << "Size: " << arr.size << endl << "Array:" << endl;
-    for (int i = 0; i<arr.size; i++){
+    os << "Size: " << arr.getSize() << endl << "Array:" << endl;
+    for (int i = 0; i<arr.getSize(); i++){
         os << "[" << i << "] = " << arr[i] << endl;
     }
     return os;
