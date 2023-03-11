@@ -27,11 +27,18 @@ IntDynamicArray::IntDynamicArray(IntDynamicArray &da):arr(new long(da.size)),siz
         IntDynamicArray::arr[i] = da.arr[i];
     }
 }
+
+IntDynamicArray::IntDynamicArray(IntDynamicArray &&da) noexcept {
+    size = da.size;
+    arr = da.arr;
+    da.arr = nullptr;
+}
+
 IntDynamicArray::~IntDynamicArray() {
     arr = nullptr;
 }
 
-int IntDynamicArray::getSize() {
+int IntDynamicArray::getSize() const {
     return size;
 }
 
@@ -49,6 +56,7 @@ void IntDynamicArray::resize(int newSize) {
             arr1[i] = 0;
         }
     }
+    this->size = newSize;
     this->arr = arr1;
 }
 

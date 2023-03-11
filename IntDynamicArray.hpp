@@ -14,9 +14,11 @@ public:
 
     IntDynamicArray(IntDynamicArray &da);
 
+    IntDynamicArray(IntDynamicArray &&da) noexcept;
+
     ~IntDynamicArray();
 
-    int getSize();
+    [[nodiscard]] int getSize() const;
 
     void resize(int newSize);
 
