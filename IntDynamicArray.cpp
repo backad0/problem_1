@@ -121,16 +121,19 @@ bool IntDynamicArray::operator>=(const IntDynamicArray &rhs) const {
     return !(*this < rhs);
 }
 
-IntDynamicArray &IntDynamicArray::operator+(IntDynamicArray &tmp) {
+IntDynamicArray IntDynamicArray::operator+(IntDynamicArray &tmp) {
     IntDynamicArray sumA(size+tmp.size);
-    long *tmpArr = new long[size+tmp.size];
+    //long *tmpArr = new long[size+tmp.size];
+    int j = 0;
     for(int i=0; i<size; i++){
-        tmpArr[i] = arr[i];
+        sumA[j] = arr[i];
+        j++;
     }
-    for (int i = size; i<size+tmp.size; i++){
-        tmpArr[i] = tmp.arr[i];
+    for (int i = 0; i<tmp.size; i++){
+        sumA[j] = tmp.arr[i];
+        j++;
     }
-    sumA.arr = tmpArr;
+    //sumA.arr = tmpArr;
     return sumA;
 }
 

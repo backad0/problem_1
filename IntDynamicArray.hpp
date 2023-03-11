@@ -40,7 +40,7 @@ public:
 
     friend std::istream &operator>>(std::istream &in, IntDynamicArray &arr);
 
-    IntDynamicArray &operator+(IntDynamicArray &tmp);
+    IntDynamicArray operator+(IntDynamicArray &tmp);
 
     IntDynamicArray &operator=(IntDynamicArray &&tmp) noexcept;
 
